@@ -1,7 +1,7 @@
 mat-card {
   margin-left: 35vw;
   margin-right: 35vw;
-  margin-top: 15vh;
+  margin-top: 5vh;
   /* height: 100%; */
 }
 
@@ -17,14 +17,17 @@ form {
   align-items: center;
 }
 
-mat-form-field, button {
+mat-form-field,
+button {
   width: 20vw;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type=number] { -moz-appearance:textfield; }
+input[type="number"] {
+  -moz-appearance: textfield;
+}

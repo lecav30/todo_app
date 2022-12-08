@@ -7,28 +7,36 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  hide = true;
+  hidePassword = true;
+  hideConfirmPassword = true;
+  passwordMatchMessage = '';
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    lastname: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.min(999999999),
-      Validators.max(999999999),
-    ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(7),
-    ]),
-    confirmPassword: new FormControl('', [
-      Validators.required,
-      Validators.minLength(7),
-    ]),
+    lastname: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(3)],
+      updateOn: 'change',
+    }),
+    phone: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(999999999),
+      ],
+      updateOn: 'change',
+    }),
+    email: new FormControl('', {
+      validators: [Validators.required, Validators.email],
+      updateOn: 'change',
+    }),
+    password: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(7)],
+      updateOn: 'change',
+    }),
+    confirmPassword: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(7)],
+      updateOn: 'change',
+    }),
   });
 
   getMinLengthErrorMessage(element: string, numOfCharacters: number) {
@@ -43,9 +51,8 @@ export class RegisterComponent implements OnInit {
   getPhoneErrorMessage() {
     if (this.registerForm.get('phone')?.hasError('required')) {
       return 'You must enter a value';
-    }
-    else if (this.registerForm.get('phone')?.hasError('max')) {
-        return 'Must have 9 characters'
+    } else if (this.registerForm.get('phone')?.hasError('max')) {
+      return 'Must have 9 characters';
     }
     return this.registerForm.get('phone')?.hasError('min')
       ? 'Must have 9 characters'
@@ -70,11 +77,26 @@ export class RegisterComponent implements OnInit {
       : '';
   }
 
-  passwordMatchValidator() {
-    return this.registerForm.get('password')?.value ===
+  getConfirmPasswordErrorMessage() {
+    if (this.registerForm.get('confirmPassword')?.hasError('required')) {
+      return 'You must enter a value';
+    }
+    return this.registerForm.get('confirmPassword')?.hasError('minlength')
+      ? 'Must have a minimun of 7 characters'
+      : '';
+  }
+
+  passwordMatchErrorMessage() {
+    this.passwordMatchMessage =
+      this.registerForm.get('password')?.value ===
       this.registerForm.get('confirmPassword')?.value
-      ? null
-      : { mismatch: true };
+        ? ''
+        : 'Passwords must match to create an account';
+        console.log(this.passwordMatchMessage);
+  }
+
+  createUser() {
+      console.log('User created');
   }
 
   constructor() {}

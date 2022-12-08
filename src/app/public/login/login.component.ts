@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
     return this.password.hasError('minlength') ? 'Must have a minimun of 7 characters' : '';
   }
 
+  checkUser() {
+    console.log('Email checked');
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

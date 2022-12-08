@@ -37,14 +37,16 @@
       }}</mat-error>
     </mat-form-field>
     <div class="flex flex-col items-center mb-3">
-      <u><a [routerLink]="'/register'">Create account </a></u>
-      <u>Forgot your password?</u>
+      <p class="underline"><a [routerLink]="'/register'">Create account</a></p>
+      <p class="underline">Forgot your password?</p>
     </div>
     <button
       mat-raised-button
       class="uppercase"
       color="primary"
       aria-label="Button to login"
+      [disabled]="!email.valid || !password.valid"
+      (click)="checkUser()"
     >
       Login
     </button>
