@@ -1,0 +1,30 @@
+mat-card {
+  margin-left: 35vw;
+  margin-right: 35vw;
+  margin-top: 15vh;
+  /* height: 100%; */
+}
+
+@media (max-width: 768px) {
+  mat-card {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+mat-form-field, button {
+  width: 20vw;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
