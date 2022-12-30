@@ -1,0 +1,46 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Leanne",
+            "lastname": "Graham",
+            "email": "leanne@gmail.com",
+            "phone": "999888777",
+            "password": "1234567"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "project 1"
+        }
+    ],
+    "groups": [
+        {
+            "id": 1,
+            "name": "group 1",
+            "projectId": 1
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "name": "task 1",
+            "description": "description 1",
+            "status": "done",
+            "priority": "high",
+            "deadline": "2020-12-12",
+            "groupId": 1
+        },
+        {
+            "id": 2,
+            "name": "task 2",
+            "description": "description 2",
+            "status": "done",
+            "priority": "high",
+            "deadline": "2020-12-12",
+            "groupId": 1
+        }
+    ]
+}

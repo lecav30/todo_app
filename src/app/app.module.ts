@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
+import { ProjectComponent } from './components/project/project.component';
+import { GroupComponent } from './components/group/group.component';
 
 // Angular Material
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { TaskComponent } from './components/task/task.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,9 @@ import { MatDividerModule } from '@angular/material/divider';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ProjectComponent,
+    GroupComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,

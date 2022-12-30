@@ -25,7 +25,7 @@
 <mat-drawer-container class="h-full">
   <mat-drawer #drawer mode="side" opened>
     <section>
-      <mat-selection-list [multiple]="false">
+      <mat-selection-list #byDate [multiple]="false">
         <mat-list-option> Upcoming </mat-list-option>
         <mat-list-option> Today </mat-list-option>
       </mat-selection-list>
@@ -34,12 +34,16 @@
     <br />
     <section>
       <h2>Projects</h2>
-      <mat-selection-list [multiple]="false">
+      <mat-selection-list #byProject [multiple]="false">
         <mat-list-option *ngFor="let project of projects" [value]="project">
           {{ project.name }}
         </mat-list-option>
       </mat-selection-list>
     </section>
   </mat-drawer>
-  <div>Main</div>
+  <app-project
+    *ngIf="byProject.selectedOptions.hasValue()"
+    [project]="byProject.selectedOptions.selected[0].value"
+  ></app-project>
+  <!-- <div>Main</div> -->
 </mat-drawer-container>

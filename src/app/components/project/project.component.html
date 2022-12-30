@@ -1,0 +1,9 @@
+<body class="ml-5 mt-5">
+  <h1>{{ project.name }}</h1>
+  <div *ngIf="groups.length > 0; else notFound">
+    <div *ngFor="let group of groups">
+      <app-group [group]="group"></app-group>
+    </div>
+  </div>
+  <ng-template #notFound>Groups not found</ng-template>
+</body>
